@@ -1,11 +1,11 @@
 const inputx = document.querySelector("#inputlang");
 const tabsWrapper = document.querySelector("#tabwrap");
-
+const test = document.querySelector('#test')
 inputx.addEventListener("keydown", (e) => {
   if (e.keyCode == 13 || e.keyCode == 188 || e.keyCode == 108) {
     e.preventDefault()
     let inputValue = inputx.value.trim();
-    console.log(inputValue);
+    test.textContent = inputValue;
     if (inputValue !== '') {
       tabGenerator(inputValue);
       inputx.value = "";
