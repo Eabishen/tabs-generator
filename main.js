@@ -8,26 +8,7 @@ var getKeyCode = function (str) {
 
 
 inputx.addEventListener("keyup", (e) => {
-    var kCd = e.keyCode || e.which;
-    if (kCd == 0 || kCd == 229) { //for android chrome keycode fix
-        kCd = getKeyCode(this.value);
-    }
-    if(kCd == 13 || kCd == 188){
-        alert('true')
-        if(inputx.value == ','){
-            inputx.value = '' 
-            console.log('removed');
-        } else{
-             console.log('true');
-
-        } 
-
-        if(!inputx.value == ""){
-
-            tabGenerator(inputx.value)
-        }
-            
-    }
+    test.textContent = `${e.key} and key code is ${e.keyCode}` 
    
 });
 
