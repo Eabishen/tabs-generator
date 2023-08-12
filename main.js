@@ -2,20 +2,21 @@ const inputx = document.querySelector("#inputlang");
 const tabsWrapper = document.querySelector("#tabwrap");
 const test = document.querySelector("#test");
 
-var getKeyCode = function (str) {
-    return str.charCodeAt(str.length - 1);
-}
 
 
-inputx.addEventListener("keyup", (e) => {
-    let ck = e.keyCode || e.which
-    if(ck == 0 || ck == 229) { //for android chrome keycode fix
-        ck = getKeyCode(this.value);
-    }
-    test.textContent = `${ck} is actual and key code is ${e.keyCode}` 
+document.getElementById("inputlang").onkeyup = function (e) {
+    
+
+    if (inputx.value.endsWith(",") || inputx.value.endsWith(" ") || e.key == "," || e.key == 'Enter') {
+        inputx.value = inputx.value.replace(/,/g, '').replace(/\s+/g, '');
+        if(inputx.value == ''){
+            return
+        }
+        tabGenerator(inputx.value);
+        inputx.value = ''
+      }
   
-   
-});
+};
 
 const tabGenerator = (value) => {
   const tab = document.createElement("div");
