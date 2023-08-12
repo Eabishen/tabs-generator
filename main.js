@@ -13,6 +13,7 @@ inputx.addEventListener("keyup", (e) => {
         kCd = getKeyCode(this.value);
     }
     if(kCd == 13 || kCd == 188){
+        alert('true')
         if(inputx.value == ','){
             inputx.value = '' 
             console.log('removed');
