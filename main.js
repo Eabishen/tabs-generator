@@ -1,30 +1,33 @@
 const inputx = document.querySelector("#inputlang");
 const tabsWrapper = document.querySelector("#tabwrap");
-const test = document.querySelector('#test')
+const test = document.querySelector("#test");
+
+var getKeyCode = function (str) {
+    return str.charCodeAt(str.length - 1);
+}
 
 
-
-inputx.addEventListener("keydown", (e) => {
-
-    var getKeyCode = function (str) {
-        return str.charCodeAt(str.length - 1);
-    }
-
-    if (e.keyCode == 13 || e.keyCode == 188 ) {
-        e.preventDefault()
-        
+inputx.addEventListener("keyup", (e) => {
     var kCd = e.keyCode || e.which;
     if (kCd == 0 || kCd == 229) { //for android chrome keycode fix
-        let xkCd = getKeyCode(this.value);
-        test.textContent = xkCd;
-        
+        kCd = getKeyCode(this.value);
     }
-    let inputValue = inputx.value.trim();
-    if (inputValue !== '') {
-      tabGenerator(inputValue);
-      inputx.value = "";
+    if(kCd == 13 || kCd == 188){
+        if(inputx.value == ','){
+            inputx.value = '' 
+            console.log('removed');
+        } else{
+             console.log('true');
+
+        } 
+
+        if(!inputx.value == ""){
+
+            tabGenerator(inputx.value)
+        }
+            
     }
-  }
+   
 });
 
 const tabGenerator = (value) => {
@@ -40,7 +43,6 @@ const tabGenerator = (value) => {
   closebtn.appendChild(icon);
   tab.appendChild(closebtn);
   tabsWrapper.appendChild(tab);
-
 
   closebtn.addEventListener("click", () => {
     tabsWrapper.removeChild(tab);
