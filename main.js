@@ -2,7 +2,7 @@ const inputx = document.querySelector("#inputlang");
 const tabsWrapper = document.querySelector("#tabwrap");
 
 inputx.addEventListener("keydown", (e) => {
-  if (e.keyCode == 13 ||  e.key == "comma") {
+  if (e.keyCode == 13 ||  e.key == ",") {
     e.preventDefault()
     let inputValue = inputx.value.trim();
     if (inputValue !== '') {
