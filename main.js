@@ -5,9 +5,15 @@ const test = document.querySelector('#test')
 
 
 inputx.addEventListener("keydown", (e) => {
-    test.textContent = e.which;
-  if (e.keyCode == 13 || e.keyCode == 188 || e.keyCode == 108 || e.which == 108 || e.which == 188) {
-    e.preventDefault()
+    if (e.keyCode == 13 || e.keyCode == 188 ) {
+        e.preventDefault()
+        
+    var kCd = e.keyCode || e.which;
+    if (kCd == 0 || kCd == 229) { //for android chrome keycode fix
+        let xkCd = getKeyCode(this.value);
+        test.textContent = xkCd;
+        
+    }
     let inputValue = inputx.value.trim();
     if (inputValue !== '') {
       tabGenerator(inputValue);
