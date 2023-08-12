@@ -5,7 +5,7 @@ inputx.addEventListener("keydown", (e) => {
   if (e.keyCode == 13 || e.keyCode == 188 || e.keyCode == 108 || e.which == 108 || e.which == 188) {
     e.preventDefault()
     let inputValue = inputx.value.trim();
-    test.textContent = inputValue;
+    test.textContent = e.which;
     if (inputValue !== '') {
       tabGenerator(inputValue);
       inputx.value = "";
