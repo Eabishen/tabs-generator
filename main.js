@@ -9,7 +9,9 @@ var getKeyCode = function (str) {
 
 inputx.addEventListener("keyup", (e) => {
     let ck = e.keyCode || e.which
-    ck = getKeyCode(ck)
+    if(ck == 0 || ck == 229) { //for android chrome keycode fix
+        ck = getKeyCode(this.value);
+    }
     test.textContent = `${ck} is actual and key code is ${e.keyCode}` 
   
    
