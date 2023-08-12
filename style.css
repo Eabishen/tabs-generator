@@ -13,23 +13,28 @@ body{
     min-height: 100vh;
     background-color: rgb(15, 15, 15);
     color: #eee;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .tabs-wrapper{
     display: flex;
     align-items: center;
-    padding: 1rem;
-    justify-content: center;
     flex-wrap: wrap;
-    width: 40%;
-    margin-inline: auto;
     gap: 1rem;
+    margin-inline: auto;
 }
+
+.tabs-wrapper:has(.tabs){
+    padding: 1rem;
+
+}
+
 .tabs{
     background-color: #00304d;
     padding: 0.5rem;
     border-radius: 05px;
     position: relative;
+    text-transform: capitalize;
 }
 
 .tabs button{
@@ -50,11 +55,24 @@ body{
 
 .input-wrapper{
     margin-block: 1rem;
+    width: 80%;
+    margin-inline: 2rem;
 }
+
+.input-wrapper label{
+    display: block;
+}
+
+.input-wrapper .helper{ 
+    margin-block: 10px;
+    color: #a3a3a3;
+}
+
 .input-wrapper input{
     padding: 10px;
     border: none;
     border-radius: 05px;
     color: #eee;
     background-color: #00304d;
+    width: 100%;
 }

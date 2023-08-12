@@ -3,9 +3,12 @@ const tabsWrapper = document.querySelector("#tabwrap");
 
 inputx.addEventListener("keydown", (e) => {
   if (e.keyCode == 13 || e.keyCode == 188) {
-    tabGenerator(inputx.value);
-    inputx.value == "," && (inputx.value = "")
-    inputx.value = ""
+    e.preventDefault()
+    let inputValue = inputx.value.trim();
+    if (inputValue !== '') {
+      tabGenerator(inputValue);
+      inputx.value = "";
+    }
   }
 });
 
@@ -23,7 +26,6 @@ const tabGenerator = (value) => {
   tab.appendChild(closebtn);
   tabsWrapper.appendChild(tab);
 
-  value = "";
 
   closebtn.addEventListener("click", () => {
     tabsWrapper.removeChild(tab);
