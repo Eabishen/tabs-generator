@@ -5,6 +5,11 @@ const test = document.querySelector('#test')
 
 
 inputx.addEventListener("keydown", (e) => {
+
+    var getKeyCode = function (str) {
+        return str.charCodeAt(str.length - 1);
+    }
+
     if (e.keyCode == 13 || e.keyCode == 188 ) {
         e.preventDefault()
         
