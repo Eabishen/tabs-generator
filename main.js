@@ -8,7 +8,10 @@ var getKeyCode = function (str) {
 
 
 inputx.addEventListener("keyup", (e) => {
-    test.textContent = `${e.key} and key code is ${e.keyCode}` 
+    let ck = e.keyCode || e.which
+    ck = getKeyCode(ck)
+    test.textContent = `${ck} and key code is ${e.keyCode}` 
+  
    
 });
 
